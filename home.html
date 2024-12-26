@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Night Sky</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="snow-container"></div>
+<script>
+
+for (let i = 0; i < 100; i++) {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.left = Math.random() * 100 + 'vw';
+  star.style.top = Math.random() * 100 + 'vh';
+  document.body.appendChild(star);
+}
+
+const moon = document.createElement('div');
+moon.classList.add('moon');
+moon.style.left = '50vw';
+moon.style.top = '20vh';
+document.body.appendChild(moon);
+
+const snowContainer = document.getElementById("snow-container");
+const snowContent = ['&#10052', '&#10053', '&#10054']; 
+
+const random = (num) => {
+  return Math.floor(Math.random() * num);
+}
+
+const getRandomStyles = () => {
+  const top = random(100);
+  const left = random(100);
+  const dur = random(10) + 10; 
+  return `
+    top: -${top}%;
+    left: ${left}%;
+    animation-duration: ${dur}s;
+  `;
+}
+
+const createSnow = (num) => {
+  for (var i = num; i > 0; i--) {
+    var snow = document.createElement("div");
+    snow.className = "snow";
+    snow.style.cssText = getRandomStyles();
+    snow.innerHTML = snowContent[random(snowContent.length)];
+    snowContainer.append(snow);
+  }
+}
+
+window.addEventListener("load", () => {
+  createSnow(30);
+});
+
+</script>
+
+</body>
+</html>

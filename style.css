@@ -1,0 +1,79 @@
+body {
+    background-color: #000020; 
+    overflow: hidden;
+  }
+  
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 1s infinite;
+}
+
+
+.moon {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+#snow-container {  
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: opacity 500ms;
+    width: 100%;
+}
+.snow {
+    animation: fall ease-in infinite, sway ease-in-out infinite;
+    color: skyblue;
+    position: absolute;
+}
+
+@keyframes fall {
+    0% {
+    opacity: 0;
+    }
+    50% {
+    opacity: 1;
+    }
+    100% {
+    top: 100vh;
+    opacity: 1;
+    }
+}
+@keyframes sway {
+    0% {
+    margin-left: 0;
+    }
+    25% {
+    margin-left: 50px;
+    }
+    50% {
+    margin-left: -50px;
+    }
+    75% {
+    margin-left: 50px;
+    }
+    100% {
+    margin-left: 0;
+    }
+}
+
+@keyframes twinkle {
+0% {
+    opacity: 1;
+}
+50% {
+    opacity: 0.5;
+}
+100% {
+    opacity: 1;
+}
+}
